@@ -4,4 +4,4 @@ Volley excels at RPC-type operations used to populate a UI, such as fetching a p
 
 For more details you should visit https://developer.android.com/training/volley/index.html
 
-Already answered https://stackoverflow.com/a/44470827/3395198
+See my answer  https://stackoverflow.com/a/44470827/3395198
