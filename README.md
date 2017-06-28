@@ -4,4 +4,4 @@ Volley excels at RPC-type operations used to populate a UI, such as fetching a p
 
 For more details you should visit https://developer.android.com/training/volley/index.html
 
-Check my Answer https://stackoverflow.com/questions/33535435/how-to-create-a-proper-volley-listener-for-cross-class-volley-method-calling/44470827#44470827
+Already answered https://stackoverflow.com/a/44470827/3395198
