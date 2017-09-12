@@ -9,5 +9,9 @@ See my answer  https://stackoverflow.com/a/44470827/3395198
 
 # NOTE
 ```
-Android Volley library has a very elaborate caching mechanism. This is one of the best features of volley. When a request is made through volley first it is checked in the cache. If an appropriate response is present in cache then it is parsed and returned directly to main thread, else a network request is made. 
+Android Volley library has a very elaborate caching mechanism. 
+This is one of the best features of volley. 
+When a request is made through volley first it is checked in the cache. 
+If an appropriate response is present in cache then it is parsed and returned directly to main thread, 
+else a network request is made. 
 ```
