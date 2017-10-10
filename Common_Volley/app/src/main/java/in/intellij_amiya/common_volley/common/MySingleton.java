@@ -6,7 +6,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
 /**
- * Created by Force Power Intellij Amiyo  on 28-06-2017.
+ * Created by Intellij Amiyo  on 28-06-2017.
  * Please follow standard Java coding conventions.
  * http://source.android.com/source/code-style.html
  */
@@ -37,6 +37,8 @@ public class MySingleton
     {
         if (mRequestQueue == null)
         {
+            // getApplicationContext() is key, it keeps you from leaking the
+            // Activity or BroadcastReceiver if someone passes one in.
             mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
         }
         return mRequestQueue;
