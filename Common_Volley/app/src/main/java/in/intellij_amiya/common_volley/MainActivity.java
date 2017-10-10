@@ -10,7 +10,7 @@ import java.util.Map;
 import in.intellij_amiya.common_volley.common.VolleyResponseListener;
 import in.intellij_amiya.common_volley.common.VolleyUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class  MainActivity extends AppCompatActivity {
 
 
     public ListView list_VIEW;
