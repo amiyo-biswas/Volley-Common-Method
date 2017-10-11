@@ -3,12 +3,12 @@ package in.intellij_amiya.common_volley;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
-
+import android.widget.Toast;
 import java.util.HashMap;
 import java.util.Map;
 
-import in.intellij_amiya.common_volley.common.VolleyResponseListener;
-import in.intellij_amiya.common_volley.common.VolleyUtils;
+import in.intellij_amiya.common_volley.common.VolleyApiCAll;
+
 
 public class  MainActivity extends AppCompatActivity {
 
@@ -34,51 +34,68 @@ public class  MainActivity extends AppCompatActivity {
         //Volley is not suitable for large download or streaming operations, since Volley holds all responses in memory during parsing.
         // Read https://developer.android.com/training/volley/index.html
 
-        String URL="PUT_YOUR_URL";
-           VolleyUtils.POST_METHOD(MainActivity.this, URL,getParams(), new VolleyResponseListener() {
-            @Override
-            public void onError(String message)
+        //Add New Address
+        Map<String, String> jsonPOST = new HashMap<>();
+        jsonPOST.put("KEY", "VAL");
+        jsonPOST.put("KEY1", "VAL1");
+
+        _SEND(jsonPOST); // Check INTERNET is ON or NOT ?
+
+    }
+
+    private void _SEND(Map<String, String> getPARAM)
+    {
+        try
+        {
+
+            String URL = "";
+            VolleyApiCAll volleyApiCAll = new VolleyApiCAll(MainActivity.this);
+            volleyApiCAll.Volley_POST(getPARAM, URL, new VolleyApiCAll.VolleyCallback()
             {
-                System.out.println("POST_ERROR" + message);
-
-            }
-
-            @Override
-            public void onResponse(Object response) {
-
-                System.out.println("POST_SUCCESS" + response);
-                // Now PARSE JSON response
-
-            }
-        });
+                @Override
+                public void onSuccessResponse(String result)
+                {
 
 
+                    try
+                    {
+                        if(result.matches("VOLLEY_NETWORK_ERROR"))
+                        {
+                            Toast.makeText(MainActivity.this, "NETWORK PROBLEM", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            try
+                            {
+
+
+                                System.out.println("RESULT"+result);
+                                // GET JSON THROUGH result
+
+
+                            }
+                            catch (Exception e)
+                            {
+
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
 
 
-    public Map<String,String> getParams()
-    {
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("YOUR_KEY", "YOUR_VALUE"); // Set Your_key_value
-        return params;
-    }
-
-    public void _loadAPI_GET()
-    {
-        String URL = "PUT_YOUR_URL";
-        VolleyUtils.GET_METHOD(MainActivity.this, URL, new VolleyResponseListener() {
-            @Override
-            public void onError(String message) {
-                System.out.println("GET_ERROR" + message);
-            }
-
-            @Override
-            public void onResponse(Object response) {
-
-                System.out.println("GET_SUCCESS" + response);
-                // Now PARSE JSON response
-            }
-        });
-    }
 }
